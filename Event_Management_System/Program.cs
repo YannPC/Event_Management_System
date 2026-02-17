@@ -1,22 +1,31 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Please choose of the following Events");
+﻿using Event_Management_System;
+using System;
+using System.Collections.Generic;
 
-Console.WriteLine("1.List All Events:");
-Console.WriteLine("2.List an individual event:");
-Console.WriteLine("3.Edit an event:");
-Console.WriteLine("4.Delete an event:");
-Console.WriteLine("5.List the attendees attending an event:");
-
-string selectAnEvent = Console.ReadLine();
-
-// convert selectAnEvent to int for comparison
-int selectedOption;
-if (int.TryParse(selectAnEvent, out selectedOption))
+namespace Program
 {
-    while (selectedOption == 1)
+    public class Program
     {
-        selectAnEvent = Console.ReadLine();
-        selectAnEvent += "\n";
-        int.TryParse(selectAnEvent, out selectedOption);
+        private static List<Event> events = new List<Event>();
+        public static void Main(string[] args)
+        {
+            // Fix CS7036: Provide all required parameters for Event constructor
+            // Fix IDE0090: Use object initializer for List<Attendee>
+            Event event1 = new Event(
+                1,
+                "Conference",
+                "Main Hall",
+                new DateTime(2024, 10, 15) 
+            );
+
+            events.Add(event1);
+            Console.WriteLine(event1);
+            Console.WriteLine(events.Count);
+            
+
+            Attendee attendee1 = new Attendee(001, "John", "John@gmal.com");
+            Console.WriteLine("Attendees");
+            Console.WriteLine(attendee1);
+        }
     }
 }
