@@ -28,6 +28,7 @@ namespace Event_Management_System
             return $"Event:{Name}, Date: {Date.ToShortTimeString()},Location: {Location}, Attendee: {attendees.Count}";
         }
 
+
         public  void AddAttendee(Attendee attendee)
         {
             attendees.Add(attendee);
@@ -43,5 +44,6 @@ namespace Event_Management_System
             return attendees;
         }
 
+       
     }
 }
